@@ -1,7 +1,135 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<!-- pixel -->
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <link rel="preload" href="https://scripts.converteai.net/8a949ff9-e3ae-4171-a108-89205c983532/players/66d525379ea272000c8dc12e/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer/v1/smartplayer.min.js" as="script">
+<link rel="preload" href="https://images.converteai.net/8a949ff9-e3ae-4171-a108-89205c983532/players/66d525379ea272000c8dc12e/thumbnail.jpg" as="image">
+<link rel="preload" href="https://cdn.converteai.net/8a949ff9-e3ae-4171-a108-89205c983532/66d525009ea272000c8dc11d/main.m3u8" as="fetch">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://api.vturb.com.br">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/all.min.css">
+  <link rel="icon" href="images/logo1.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <title>Receita Natural</title>
+  <style>
+    body {
+      font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      background-color: #6EC1E4;
+      margin-bottom: 5%;
+      position: relative;
+      /* Para posicionar o ícone de hambúrguer */
+    }
+
+    .hamburger-icon {
+      color: white;
+      font-size: 24px;
+      position: absolute;
+      left: 20px;
+      /* Ajuste conforme necessário */
+      cursor: pointer;
+    }
+
+    .header-logo {
+      max-width: 150px;
+      height: auto;
+    }
+
+
+    .player {
+      width: 90%;
+      margin: 0 auto;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      border: 2px solid white;
+      margin-bottom: 5%;
+    }
+
+    .player img,
+    .player #backdrop_65b1ebda6c6b12000705cfde {
+      border-radius: 10px;
+    }
+
+    .hedline {
+      text-align: center;
+      color: #f45e1d;
+      padding: 20px;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      font-size: 2rem;
+      font-weight: 100;
+    }
+
+    .hedline span.video-title {
+      color: red;
+      text-decoration: underline;
+    }
+
+    .hedline span.highlight {
+      color: white;
+      font-weight: bold;
+      background-color: red;
+      padding: 0 5px;
+    }
+
+    .subheadline {
+      color: black;
+      font-size: 1.4rem;
+      font-weight: bold;
+      padding: 0 5%;
+      text-align: center;
+    }
+
+    .highlight {
+      color: #F4A763;
+    }
+
+
+    .partners-section {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .section-description {
+      font-size: 15px;
+      text-decoration: none;
+      color: #666666;
+    }
+
+    footer {
+      color: #333;
+      padding: 10px 20px;
+      text-align: center;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+      /* Adiciona uma sombra leve */
+      margin-top: auto;
+      /* Empurra o footer para o fim da página */
+    }
+  </style>
+  
+<!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -11,64 +139,41 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1341513146563529');
+fbq('init', '1750497855481125');
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1341513146563529&ev=PageView&noscript=1"
+src="https://www.facebook.com/tr?id=1750497855481125&ev=PageView&noscript=1"
 /></noscript>
-<!-- fim- pixel -->
+<!-- End Meta Pixel Code -->
 
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WhatsApp</title>
+<script>document.addEventListener('contextmenu', event => event.preventDefault());</script> 
+
 </head>
+
 <body>
+  <header>
+    <i class="fas fa-bars hamburger-icon"></i>
+     <h1 style="color: white;">NOTÍCIAS </h1>
+  </header>
 
-<!-- Este elemento <a> é usado apenas para fins de formatação, não tem efeito na execução do script -->
-<a id="whatsappLink" style="display: none;"></a>
+  <h1 class="hedline" style="display: none;">
+    HEDLINE
+  </h1>
+  <h2 class="subheadline" style="display: none;">
+    <span class="highlight">SUBHEADLINE</span> 
+  </h2>
+  <div class="player">
+<div id="vid_66d525379ea272000c8dc12e" style="position:relative;width:100%;padding: 177.3399014778325% 0 0;"> <img id="thumb_66d525379ea272000c8dc12e" src="https://images.converteai.net/8a949ff9-e3ae-4171-a108-89205c983532/players/66d525379ea272000c8dc12e/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"> <div id="backdrop_66d525379ea272000c8dc12e" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div> </div> <script type="text/javascript" id="scr_66d525379ea272000c8dc12e"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/8a949ff9-e3ae-4171-a108-89205c983532/players/66d525379ea272000c8dc12e/player.js", s.async=!0,document.head.appendChild(s); </script> <style> .elementor-element:has(#smartplayer) { width: 100%; } </style>
+  </div>
 
-<script>
-    // Chama a função enviarWhatsapp assim que a página é carregada
-    window.onload = function() {
-        enviarWhatsapp();
-    };
-
-    function enviarWhatsapp() {
-        // Número de telefone
-        var numeroTelefone = "+5535997530284";
-        
-        // Texto padrão para a mensagem no WhatsApp
-        var textoWhatsapp = "*ATENÇÃO NÃO APAGAR* - Você Acaba de *GANHAR* uma Consulta Totalmente *GRÁTIS*- Protocolo nº";
-        
-        // Obter o valor de UTM_campaign da URL
-        var utmCampaign = getParameterByName('utm_campaign');
-        
-        // Adicionar UTM_campaign à mensagem do WhatsApp
-        if (utmCampaign) {
-            textoWhatsapp += "%0A" + utmCampaign;
-        }
-        
-        // Montar a URL do link do WhatsApp
-        var whatsappLink = "https://api.whatsapp.com/send?phone=" + numeroTelefone + "&text=" + textoWhatsapp;
-        
-        // Redirecionar para a URL do WhatsApp
-        document.getElementById('whatsappLink').href = whatsappLink;
-        document.getElementById('whatsappLink').click();
-    }
-    
-    // Função para obter parâmetros da URL
-    function getParameterByName(name, url) {
-        if (!url) url = window.location.href;
-        name = name.replace(/[\[\]]/g, "\\$&");
-        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-            results = regex.exec(url);
-        if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g, " "));
-    }
-</script>
-
+  <footer>
+    <section class="partners-section">
+      <a href="./termos.html"  class="section-description" target="_blank">Termos de Uso</a>  -
+      <a href="./privacidade.html"  class="section-description" target="_blank">Privacidade</a>
+    </section>
+    <p>&copy; 2024 Otávio Bianchi. <br>Todos os direitos reservados.</p>
+  </footer>
 </body>
+
 </html>
