@@ -59,13 +59,21 @@
             }, 1000);
         }
 
-        // Bloquear teclas de atalho como F12, Ctrl + U, Ctrl + Shift + I
+        // Bloquear teclas de atalho como F12, Ctrl + U, Ctrl + Shift + I e Ctrl
         document.onkeydown = function(event) {
             // Bloquear F12, Ctrl + U, Ctrl + Shift + I
-            if (event.keyCode == 123 || (event.ctrlKey && event.keyCode == 85) || (event.ctrlKey && event.shiftKey && event.keyCode == 73)) {
+            if (event.keyCode == 123 || (event.ctrlKey && event.keyCode == 85) || (event.ctrlKey && event.shiftKey && event.keyCode == 73) || event.ctrlKey) {
                 event.preventDefault(); // Bloquear o comportamento padrão
                 alert("O código-fonte está protegido!"); // Mensagem de alerta
                 return false; // Impedir a ação
+            }
+
+            // Verificar outras combinações de teclas específicas
+            if ((event.ctrlKey && event.keyCode == 76) || // Ctrl+L
+                (event.ctrlKey && event.keyCode == 67) || // Ctrl+C
+                (event.ctrlKey && event.keyCode == 86) || // Ctrl+V
+                (event.ctrlKey && event.keyCode == 88)) { // Ctrl+X
+                event.preventDefault(); // Bloquear a ação
             }
         };
 
