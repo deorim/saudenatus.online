@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Protegida</title>
+    <style>
+        /* Estilos básicos */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .conteudo-protegido {
+            display: block;
+        }
+
+        .conteudo-alternativo {
+            display: none;
+            background-color: #ffcccc;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        /* Ocultar cursor */
+        .no-cursor {
+            cursor: none;
+        }
+
+        /* Evitar a seleção de texto */
+        ::selection {
+            background: transparent;
+        }
+    </style>
+    <script>
+        // Função para detectar se o usuário está inspecionando a página
+        function detectaInspecao() {
+            let conteudoProtegido = document.querySelector('.conteudo-protegido');
+            let conteudoAlternativo = document.querySelector('.conteudo-alternativo');
+            
+            // Detecta se as ferramentas de desenvolvedor estão abertas
+            setInterval(function() {
+                if (window.outerHeight - window.innerHeight > 100 || window.outerWidth - window.innerWidth > 100) {
+                    // Mudança de conteúdo quando detectada a inspeção
+                    conteudoProtegido.style.display = 'none';
+                    conteudoAlternativo.style.display = 'block';
+                }
+            }, 1000);
+        }
+
+        // Bloquear teclas de atalho como F12, Ctrl + U, Ctrl + Shift + I
+        document.onkeydown = function(event) {
+            // Bloquear F12, Ctrl + U, Ctrl + Shift + I
+            if (event.keyCode == 123 || (event.ctrlKey && event.keyCode == 85) || (event.ctrlKey && event.shiftKey && event.keyCode == 73)) {
+                event.preventDefault(); // Bloquear o comportamento padrão
+                alert("O código-fonte está protegido!"); // Mensagem de alerta
+                return false; // Impedir a ação
+            }
+        };
+
+        // Bloquear Ctrl + U na URL (evitar visualização do código-fonte diretamente)
+        window.addEventListener("keydown", function(event) {
+            if (event.ctrlKey && event.keyCode == 85) {
+                event.preventDefault();  // Impede o comportamento padrão do Ctrl + U
+                alert("O código-fonte está protegido!");
+            }
+        });
+
+        // Desabilitar o clique direito do mouse
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault(); // Bloqueia o menu de contexto
+            alert("Você não pode copiar o conteúdo desta página!");
+        });
+
+        // Detectar tentativa de arrastar o conteúdo
+        document.addEventListener('dragstart', function(event) {
+            event.preventDefault();
+            alert("O conteúdo não pode ser arrastado!");
+        });
+
+        // Impedir a seleção de texto
+        document.addEventListener('selectstart', function(event) {
+            event.preventDefault();
+        });
+
+        // Ocultar o cursor ao tentar inspecionar ou copiar
+        window.onmousemove = function (e) {
+            var x = e.clientX;
+            var y = e.clientY;
+            if (x < 100 || y < 100) {
+                document.body.classList.add('no-cursor');
+            } else {
+                document.body.classList.remove('no-cursor');
+            }
+        };
+
+        // Chama a função de detecção
+        window.onload = detectaInspecao;
+    </script>
+</head>
+<body>
+    <!-- Conteúdo verdadeiro (invisível para quem inspeciona) -->
+    <div class="conteudo-protegido">
+        <h1>Conteúdo Exclusivo</h1>
+        <p>Este conteúdo não pode ser copiado ou visualizado facilmente! A proteção está funcionando.</p>
+    </div>
+
+    <!-- Conteúdo alternativo (mostrado quando tentam inspecionar) -->
+    <div class="conteudo-alternativo">
+        <h1>Desculpe, conteúdo protegido!</h1>
+        <p>Você não pode visualizar o conteúdo desta página de forma direta. Agradecemos sua compreensão.</p>
+    </div>
+</body>
+</html>
