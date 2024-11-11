@@ -5,109 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Protegida</title>
     <style>
-        /* Estilos básicos */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
-
-        .conteudo-protegido {
-            display: block;
-        }
-
-        .conteudo-alternativo {
-            display: none;
-            background-color: #ffcccc;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        h1 {
-            color: #333;
-        }
-
-        /* Ocultar cursor */
-        .no-cursor {
-            cursor: none;
-        }
-
-        /* Evitar a seleção de texto */
-        ::selection {
-            background: transparent;
-        }
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; text-align: center; }
+        .conteudo { display: none; }
     </style>
     <script>
-        // Função para bloquear teclas específicas (Ctrl + U, Ctrl + Shift + I, F12)
-        document.addEventListener('keydown', function(event) {
-            // Bloquear combinações de teclas Ctrl + U, Ctrl + Shift + I, F12
-            if (
-                (event.ctrlKey && event.keyCode == 85) ||  // Ctrl + U
-                (event.ctrlKey && event.shiftKey && event.keyCode == 73) ||  // Ctrl + Shift + I
-                (event.keyCode == 123) ||  // F12
-                (event.ctrlKey) // Bloquear a tecla Ctrl sozinha
-            ) {
-                event.preventDefault(); // Impede a ação padrão
-                return false; // Impede o comportamento da tecla
-            }
-        });
+        (function() {
+            // Função para esconder o conteúdo real
+            document.addEventListener('DOMContentLoaded', function() {
+                var realContent = '<h1>Conteúdo Exclusivo- teste 03</h1><p>Este conteúdo não pode ser copiado ou visualizado diretamente. A proteção está funcionando.</p>';
+                document.body.innerHTML = realContent;  // Substitui o conteúdo do corpo da página com o conteúdo real
 
-        // Bloquear o clique direito do mouse
-        document.addEventListener('contextmenu', function(event) {
-            event.preventDefault(); // Bloqueia o menu de contexto
-        });
-
-        // Bloquear a seleção de texto
-        document.addEventListener('selectstart', function(event) {
-            event.preventDefault();
-        });
-
-        // Impedir arraste de conteúdo
-        document.addEventListener('dragstart', function(event) {
-            event.preventDefault(); // Bloqueia o arraste de conteúdo
-        });
-
-        // Impedir o foco da barra de endereço para usar teclas de atalho
-        window.addEventListener('focus', function() {
-            document.onkeydown = function(event) {
-                // Bloquear novamente quando a página estiver em foco
-                if (
-                    (event.ctrlKey && event.keyCode == 85) ||  // Ctrl + U
-                    (event.ctrlKey && event.shiftKey && event.keyCode == 73) ||  // Ctrl + Shift + I
-                    (event.keyCode == 123) ||  // F12
-                    (event.ctrlKey) // Bloquear a tecla Ctrl sozinha
-                ) {
-                    event.preventDefault(); // Impede a ação
-                    return false; // Bloqueia o comportamento da tecla
+                // Exibe um aviso para quem tentar inspecionar o código-fonte
+                if (window.location != window.top.location) {
+                    alert('Conteúdo protegido! Não é possível ver o código-fonte corretamente.');
+                    return;
                 }
-            };
-        });
-
-        // Para garantir que a tecla Ctrl sozinha seja bloqueada em qualquer área da página
-        document.addEventListener('keydown', function(event) {
-            if (event.ctrlKey) {
-                event.preventDefault();
-            }
-        });
+            });
+        })();
     </script>
 </head>
 <body>
-    <!-- Conteúdo verdadeiro (invisível para quem inspeciona) -->
-    <div class="conteudo-protegido">
-        <h1>Conteúdo Exclusivo- teste 02</h1>
-        <p>Este conteúdo não pode ser copiado ou visualizado facilmente! A proteção está funcionando.</p>
-    </div>
-
-    <!-- Conteúdo alternativo (mostrado quando tentam inspecionar) -->
-    <div class="conteudo-alternativo">
-        <h1>Desculpe, conteúdo protegido!- teste 02</h1>
-        <p>Você não pode visualizar o conteúdo desta página de forma direta. Agradecemos sua compreensão.</p>
+    <div class="conteudo">
+        <!-- O conteúdo real será inserido dinamicamente pelo script -->
     </div>
 </body>
 </html>
